@@ -1,9 +1,8 @@
 #pragma once
 
 #include "pch.hpp"
-
 #include "core/shader.hpp"
-#include "core/glyph.hpp"
+#include "core/font.hpp"
 
 namespace core
 {
@@ -32,7 +31,7 @@ namespace core
 		static void finalize();
 
 		static void getPixelDataPNG(const char *fileName, unsigned char *&buffer, unsigned int *width, unsigned int *height);
-		static void getPixelDataFont(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned char *&buffer, unsigned int *width, unsigned int *height);
+		static void getPixelDataFont(const char *fontPath, unsigned int fontSize, Font::Glyph *glyphs, unsigned char *&buffer, unsigned int *width, unsigned int *height);
 
 		//* Generic Draw Texture 2D stuff
 		static Shader *shader;
@@ -48,7 +47,7 @@ namespace core
 
 		Texture(const char *fileName, unsigned int maxInstances);
 		Texture(unsigned int width, unsigned int height, unsigned int maxInstances);
-		Texture(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned int maxInstances);
+		Texture(const char *fontPath, unsigned int fontSize, Font::Glyph *glyphs, unsigned int maxInstances);
 		
 		Texture(const Texture&) = delete;
 		~Texture();

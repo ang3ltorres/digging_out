@@ -1,4 +1,5 @@
 #include "core/font.hpp"
+#include "core/texture.hpp"
 
 using namespace core;
 

@@ -1,5 +1,4 @@
 #include "core/text.hpp"
-
 #include "core/graphics.hpp"
 
 using namespace core;
@@ -27,7 +26,7 @@ void Text::render(const char *text)
 			continue;
 		}
 
-		const core::Glyph &glyph = font->glyphs[*c - 32];
+		const core::Font::Glyph &glyph = font->glyphs[*c - 32];
 
 		width += glyph.advance * scale;
 
@@ -66,7 +65,7 @@ void Text::render(const char *text)
 			continue;
 		}
 
-		const core::Glyph &glyph = font->glyphs[*c - 32];
+		const core::Font::Glyph &glyph = font->glyphs[*c - 32];
 
 		// Setup texture coordinates (UVs from the atlas)
 		font->src =

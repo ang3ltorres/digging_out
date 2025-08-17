@@ -1,6 +1,5 @@
 #include "core/drawable.hpp"
-
-#include "core/graphics.hpp"
+#include "core/texture.hpp"
 
 using namespace core;
 using namespace glm;

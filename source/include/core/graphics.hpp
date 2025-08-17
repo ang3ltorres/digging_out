@@ -10,6 +10,7 @@
 #include "core/sprite.hpp"
 #include "core/renderTexture.hpp"
 #include "core/text.hpp"
+#include "core/drawable.hpp"
 
 namespace core
 {

@@ -1,12 +1,12 @@
 #pragma once
 
 #include "pch.hpp"
-
 #include "core/color.hpp"
-#include "core/texture.hpp"
 
 namespace core
 {
+	class Texture;
+
 	class Drawable
 	{
 	public:

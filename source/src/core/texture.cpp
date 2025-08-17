@@ -1,5 +1,4 @@
 #include "core/texture.hpp"
-
 #include "core/graphics.hpp"
 
 using namespace core;
@@ -123,7 +122,7 @@ void Texture::getPixelDataPNG(const char *fileName, unsigned char *&buffer, unsi
 	fclose(fp);
 }
 
-void Texture::getPixelDataFont(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned char *&buffer, unsigned int *width, unsigned int *height)
+void Texture::getPixelDataFont(const char *fontPath, unsigned int fontSize, Font::Glyph *glyphs, unsigned char *&buffer, unsigned int *width, unsigned int *height)
 {
 	FT_Library ft;
 	FT_Init_FreeType(&ft);
@@ -251,7 +250,7 @@ Texture::Texture(unsigned int width, unsigned int height, unsigned int maxInstan
 	createBuffers(1);	
 }
 
-Texture::Texture(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned int maxInstances)
+Texture::Texture(const char *fontPath, unsigned int fontSize, Font::Glyph *glyphs, unsigned int maxInstances)
 : maxInstances(maxInstances), currentInstance(0)
 {
 	Texture::getPixelDataFont(fontPath, fontSize, glyphs, pixelData, &width, &height);

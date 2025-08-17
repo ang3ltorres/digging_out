@@ -1,4 +1,5 @@
 #include "core/sprite.hpp"
+#include "core/texture.hpp"
 
 using namespace core;
 using namespace glm;

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "pch.hpp"
-
 #include "core/drawable.hpp"
 
 namespace core

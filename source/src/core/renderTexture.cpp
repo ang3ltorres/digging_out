@@ -1,4 +1,5 @@
 #include "core/renderTexture.hpp"
+#include "core/texture.hpp"
 
 using namespace core;
 using namespace glm;
