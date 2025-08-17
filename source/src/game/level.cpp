@@ -70,7 +70,7 @@ bool Level::collision(ivec4 &rect)
 		unsigned short packed = data[getBlock(x, y)];
 		unsigned char  block  =  packed        & 0xFF; // bits 0-7
 
-		rectAux = {x * 32.0f, y * 32.0f, 32.0f, 32.0f};
+		rectAux = {x * 32, y * 32, 32, 32};
 
 		if (block == 0xFF and Utils::collisionRect(rectAux, rect))
 			return true;
