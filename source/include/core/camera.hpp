@@ -2,7 +2,7 @@
 
 #include "pch.hpp"
 
-namespace gui
+namespace core
 {
 	class Camera
 	{

@@ -1,6 +1,6 @@
 #include "core/camera.hpp"
 
-using namespace gui;
+using namespace core;
 using namespace glm;
 
 Camera::Camera(unsigned int width, unsigned int height)

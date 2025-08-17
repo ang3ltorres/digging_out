@@ -1,6 +1,6 @@
 #include "core/shader.hpp"
 
-using namespace gui;
+using namespace core;
 
 char Shader::infoLog[512];
 Shader *Shader::current;

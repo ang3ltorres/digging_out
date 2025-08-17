@@ -11,7 +11,7 @@
 #include "core/renderTexture.hpp"
 #include "core/text.hpp"
 
-namespace gui
+namespace core
 {
 	class Graphics
 	{

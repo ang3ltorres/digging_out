@@ -5,14 +5,14 @@ int main()
 	unsigned int width = 1280;
 	unsigned int height = 720;
 	
-	gui::Graphics::initialize(width, height, "OpenGL");
+	core::Graphics::initialize(width, height, "OpenGL");
 	
-	gui::RenderTexture *renderTexture = new gui::RenderTexture{800, 600};
+	core::RenderTexture *renderTexture = new core::RenderTexture{800, 600};
 
-	gui::Font *font = new gui::Font{"../res/mononoki-Bold.ttf", 90};
+	core::Font *font = new core::Font{"../res/mononoki-Bold.ttf", 90};
 
 	// auto it = font->glyphs->find('p');
-	// const gui::Glyph &glyph = it->second;
+	// const core::Glyph &glyph = it->second;
 	// font->src =
 	// {
 	// 	glyph.atlasPos.x,
@@ -31,7 +31,7 @@ int main()
 
 	// font->updateModel();
 
-	gui::Text *text = new gui::Text{font, "Hello world!!"};
+	core::Text *text = new core::Text{font, "Hello world!!"};
 
 	// renderTexture->dst.z *= 1;
 	// renderTexture->dst.w *= 1;
@@ -41,26 +41,26 @@ int main()
 	// svgSprite->dst.w *= 4;
 	// svgSprite->updateModel();
 
-	while (!gui::Graphics::shouldClose())
+	while (!core::Graphics::shouldClose())
 	{
 		// Update logic
 
 		if (Input::keyboardStates[GLFW_KEY_ESCAPE])
-			gui::Graphics::forceClose = true;
+			core::Graphics::forceClose = true;
 
-		// gui::Graphics::currentCamera->move({1, 0});
+		// core::Graphics::currentCamera->move({1, 0});
 		// rect->sprite->texture->updateUBO();
 
 		// Render to target
-		gui::Graphics::setRenderTexture(renderTexture);
-		gui::Graphics::clearScreen({255, 0, 255});
+		core::Graphics::setRenderTexture(renderTexture);
+		core::Graphics::clearScreen({255, 0, 255});
 
 		//rect->sprite->batch();
 		//rect->sprite->texture->draw();
 
 		// Render to default "canvas"
-		gui::Graphics::setRenderTexture();
-		gui::Graphics::clearScreen({255, 143, 119});
+		core::Graphics::setRenderTexture();
+		core::Graphics::clearScreen({255, 143, 119});
 		
 		renderTexture->batch();
 		renderTexture->texture->draw();
@@ -77,12 +77,12 @@ int main()
 		// rect->sprite->batch();
 		// rect->sprite->texture->draw();
 
-		gui::Graphics::endFrame();
+		core::Graphics::endFrame();
 	}
 
 	delete font;
 	delete renderTexture;
 
-	gui::Graphics::finalize();
+	core::Graphics::finalize();
 	return 0;
 }

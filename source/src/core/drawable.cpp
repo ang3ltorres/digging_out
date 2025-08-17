@@ -2,7 +2,7 @@
 
 #include "core/graphics.hpp"
 
-using namespace gui;
+using namespace core;
 using namespace glm;
 
 Drawable::Drawable(Texture *texture)

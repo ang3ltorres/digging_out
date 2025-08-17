@@ -5,7 +5,7 @@
 #include "core/drawable.hpp"
 #include "core/camera.hpp"
 
-namespace gui
+namespace core
 {
 	class RenderTexture : public Drawable
 	{

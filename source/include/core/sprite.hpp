@@ -4,7 +4,7 @@
 
 #include "core/drawable.hpp"
 
-namespace gui
+namespace core
 {
 	class Sprite : public Drawable
 	{

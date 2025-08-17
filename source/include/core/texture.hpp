@@ -5,7 +5,7 @@
 #include "core/shader.hpp"
 #include "core/glyph.hpp"
 
-namespace gui
+namespace core
 {
 	class Texture
 	{

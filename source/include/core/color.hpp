@@ -1,6 +1,6 @@
 #pragma once
 
-namespace gui
+namespace core
 {
 	struct Color
 	{

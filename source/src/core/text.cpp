@@ -2,7 +2,7 @@
 
 #include "core/graphics.hpp"
 
-using namespace gui;
+using namespace core;
 
 Text::Text(Font *font, const char *text, float gap)
 : font(font), renderTexture(nullptr), gap(gap)
@@ -27,7 +27,7 @@ void Text::render(const char *text)
 			continue;
 		}
 
-		const gui::Glyph &glyph = font->glyphs[*c - 32];
+		const core::Glyph &glyph = font->glyphs[*c - 32];
 
 		width += glyph.advance * scale;
 
@@ -51,7 +51,7 @@ void Text::render(const char *text)
 
 	// Create or update the RenderTexture
 	delete renderTexture;
-	renderTexture = new gui::RenderTexture{textureWidth, textureHeight};
+	renderTexture = new core::RenderTexture{textureWidth, textureHeight};
 
 	// Bind the RenderTexture to draw text into it
 	Graphics::setRenderTexture(renderTexture);
@@ -66,7 +66,7 @@ void Text::render(const char *text)
 			continue;
 		}
 
-		const gui::Glyph &glyph = font->glyphs[*c - 32];
+		const core::Glyph &glyph = font->glyphs[*c - 32];
 
 		// Setup texture coordinates (UVs from the atlas)
 		font->src =

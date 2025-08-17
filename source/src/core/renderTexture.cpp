@@ -1,6 +1,6 @@
 #include "core/renderTexture.hpp"
 
-using namespace gui;
+using namespace core;
 using namespace glm;
 
 RenderTexture::RenderTexture(unsigned int width, unsigned int height, Camera *camera)

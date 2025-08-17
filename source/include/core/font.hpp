@@ -5,7 +5,7 @@
 #include "core/drawable.hpp"
 #include "core/glyph.hpp"
 
-namespace gui
+namespace core
 {
 	class Font : public Drawable
 	{

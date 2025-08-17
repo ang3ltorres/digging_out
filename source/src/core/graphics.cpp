@@ -1,6 +1,6 @@
 #include "core/graphics.hpp"
 
-using namespace gui;
+using namespace core;
 
 GLFWwindow *Graphics::window;
 unsigned int Graphics::width;

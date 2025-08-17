@@ -5,7 +5,7 @@
 #include "core/color.hpp"
 #include "core/texture.hpp"
 
-namespace gui
+namespace core
 {
 	class Drawable
 	{
