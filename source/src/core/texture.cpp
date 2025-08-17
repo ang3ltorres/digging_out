@@ -135,7 +135,7 @@ void Texture::getPixelDataFont(const char *fontPath, unsigned int fontSize, Font
 	// Determine texture size
 	unsigned int maxGlyphWidth = 0, maxGlyphHeight = 0;
 	unsigned int totalWidth = 0, currentRowHeight = 0;
-	for (unsigned int c = 32; c < 128; c++)
+	for (unsigned long c = 32; c < 128; c++)
 	{
 		if (FT_Load_Char(face, c, FT_LOAD_RENDER))
 			continue;
@@ -165,7 +165,7 @@ void Texture::getPixelDataFont(const char *fontPath, unsigned int fontSize, Font
 
 	unsigned int xOffset = 0, yOffset = 0, rowHeight = 0;
 
-	for (unsigned int c = 32; c < 128; c++)
+	for (unsigned long c = 32; c < 128; c++)
 	{
 		if (FT_Load_Char(face, c, FT_LOAD_RENDER))
 			continue;

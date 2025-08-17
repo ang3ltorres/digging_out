@@ -12,8 +12,11 @@ GLuint Graphics::currentTexture;
 Camera *Graphics::currentCamera;
 Camera *Graphics::defaultCamera;
 
-float Graphics::fps;
-float Graphics::delta;
+double Graphics::fps;
+double Graphics::deltaTime;
+
+double Graphics::currentTime;
+double Graphics::lastTime = 0.0f;
 
 static void resized([[maybe_unused]] GLFWwindow *window, int width, int height)
 {
@@ -49,7 +52,7 @@ void Graphics::initialize(int width, int height, const char *title)
 	glDisable(GL_CULL_FACE);
 	glDisable(GL_STENCIL_TEST);
 	glDepthMask(GL_FALSE);
-    glfwSwapInterval(1);
+  glfwSwapInterval(1);
 	glActiveTexture(GL_TEXTURE0);
 
 	Graphics::clearScreen({255, 255, 255});
@@ -60,8 +63,8 @@ void Graphics::initialize(int width, int height, const char *title)
 	Graphics::defaultCamera  = new Camera(Graphics::width, Graphics::height);
 	Graphics::currentCamera  = Graphics::defaultCamera;
 
-	Graphics::fps   = 0.0f;
-	Graphics::delta = 0.0f;
+	Graphics::fps       = 0.0f;
+	Graphics::deltaTime = 0.0f;
 
 	// Set callbacks
 	glfwSetKeyCallback(Graphics::window, &Input::callback);
@@ -81,6 +84,12 @@ bool Graphics::shouldClose()
 {
 	if (Graphics::forceClose)
 		glfwSetWindowShouldClose(Graphics::window, GLFW_TRUE);
+
+	currentTime = glfwGetTime();
+	deltaTime   = currentTime - lastTime;
+	lastTime    = currentTime;
+
+	fps = (deltaTime > 0.0f) ? 1.0f / deltaTime : 0.0f;
 
 	return glfwWindowShouldClose(Graphics::window);
 }
@@ -136,3 +145,4 @@ void Graphics::endFrame()
 	glfwSwapBuffers(Graphics::window);
 	glfwPollEvents();
 }
+

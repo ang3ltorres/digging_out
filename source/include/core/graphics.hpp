@@ -10,7 +10,6 @@
 #include "core/sprite.hpp"
 #include "core/renderTexture.hpp"
 #include "core/text.hpp"
-#include "core/drawable.hpp"
 
 namespace core
 {
@@ -24,8 +23,6 @@ namespace core
 		static void initialize(int width, int height, const char *title);
 		static void finalize();
 		
-		static void begin();
-
 		// Window
 		static GLFWwindow *window;
 		static unsigned int width;
@@ -42,8 +39,8 @@ namespace core
 		static Camera *defaultCamera;
 
 		// Time Travel stuff
-		static float fps;
-		static float delta;
+		static double fps;
+		static double deltaTime;
 
 		// Library Methods
 		static bool shouldClose();
@@ -52,5 +49,9 @@ namespace core
 		static void setVAO(GLuint VAO);
 		static void setTexture(GLuint texture);
 		static void endFrame();
+
+	private:
+		static double currentTime;
+		static double lastTime;
 	};
 }

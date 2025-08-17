@@ -13,23 +13,7 @@ int main()
 
 	// auto it = font->glyphs->find('p');
 	// const core::Glyph &glyph = it->second;
-	// font->src =
-	// {
-	// 	glyph.atlasPos.x,
-	// 	glyph.atlasPos.y,
-	// 	glyph.size.x,
-	// 	glyph.size.y
-	// };
 
-	// font->dst =
-	// {
-	// 	128,
-	// 	128,
-	// 	glyph.size.x,
-	// 	glyph.size.y
-	// };
-
-	// font->updateModel();
 
 	core::Text *text = new core::Text{font, "Hello world!!"};
 
@@ -41,8 +25,28 @@ int main()
 	// svgSprite->dst.w *= 4;
 	// svgSprite->updateModel();
 
+	font->src =
+	{
+		0.0f,
+		0.0f,
+		font->texture->width,
+		font->texture->height
+	};
+
+	font->dst =
+	{
+		0.0f,
+		0.0f,
+		font->texture->width,
+		font->texture->height
+	};
+	
+	font->updateModel();
+
 	while (!core::Graphics::shouldClose())
 	{
+		printf("Delta Time: %.4f\tFPS: %.4f\n", core::Graphics::deltaTime, core::Graphics::fps);
+
 		// Update logic
 
 		if (Input::keyboardStates[GLFW_KEY_ESCAPE])
@@ -65,11 +69,8 @@ int main()
 		renderTexture->batch();
 		renderTexture->texture->draw();
 
-		// font->batch();
-		// font->texture->draw();
-
-		text->renderTexture->batch();
-		text->renderTexture->texture->draw();
+		// text->renderTexture->batch();
+		// text->renderTexture->texture->draw();
 
 		// svgSprite->batch();
 		// svgSprite->texture->draw();

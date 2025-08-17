@@ -1,13 +1,16 @@
 #pragma once
 
-// STD
+// C
 #include <cstring>
 #include <cstdio>
 #include <cstdlib>
+
+// C++
 #include <string>
-#include <bitset>
-#include <functional>
 #include <vector>
+#include <bitset>
+#include <random>
+#include <functional>
 
 // OpenGL
 #define GLFW_INCLUDE_NONE
