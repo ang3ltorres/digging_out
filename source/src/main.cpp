@@ -6,6 +6,5 @@ using namespace game;
 int main()
 {
 	Game::init(1280, 720);
-	Game::free();
 	return 0;
 }

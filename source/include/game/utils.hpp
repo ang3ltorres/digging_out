@@ -8,6 +8,7 @@ namespace game
 	{
 	public:
 		static float random();
+		static int randomRange(int min, int max);
 
 		static bool collisionRect(glm::ivec4 &r1, glm::ivec4 &r2);
 	
@@ -26,5 +27,6 @@ namespace game
 	private:
 		static std::mt19937 gen;
 		static std::uniform_real_distribution<float> dist;
+		static std::uniform_int_distribution<int> distInt;
 	};
 }

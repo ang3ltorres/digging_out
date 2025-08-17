@@ -16,16 +16,21 @@ void Game::init(int width, int height)
 	Game::texture = new Texture("../res/main.png", 1);
 	Game::sprite = new Sprite(0, 0, Game::texture, 0, 0, 32, 6, 0.5f);
 
+	Level::init(16, 16);
+
 	while (!Graphics::shouldClose())
 	{
 		Game::update();
 		Game::draw();
 		Graphics::endFrame();
 	}
+
+	Game::free();
 }
 
 void Game::free()
 {
+	Level::free();
 	delete Game::renderTexture;
 	Graphics::finalize();
 }
@@ -38,6 +43,8 @@ void Game::update()
 
 	if (Input::keyboardStates[GLFW_KEY_ESCAPE])
 		Graphics::forceClose = true;
+
+	Level::update();
 }
 
 void Game::draw()
@@ -46,7 +53,9 @@ void Game::draw()
 	Graphics::setRenderTexture(Game::renderTexture);
 	Graphics::clearScreen({255, 0, 255});
 
-	Game::sprite->draw();
+	Level::draw();
+
+	//Game::sprite->draw();
 
 	// Render to default "canvas"
 	Graphics::setRenderTexture();

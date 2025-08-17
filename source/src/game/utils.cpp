@@ -7,10 +7,17 @@ using namespace game;
 
 std::mt19937 Utils::gen(std::random_device{}());
 std::uniform_real_distribution<float> Utils::dist(0.0f, 1.0f);
+std::uniform_int_distribution<int> Utils::distInt(0, 1);
 
 float Utils::random()
 {
 	return dist(gen);
+}
+
+int Utils::randomRange(int min, int max)
+{
+	distInt.param(std::uniform_int_distribution<int>::param_type(min, max));
+	return distInt(gen);
 }
 
 bool Utils::collisionRect(ivec4 &r1, ivec4 &r2)
