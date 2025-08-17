@@ -18,5 +18,8 @@ namespace game
 		static void draw();
 
 		static core::RenderTexture *renderTexture;
+		
+		static core::Texture *texture;
+		static core::Sprite *sprite;
 	};
 }

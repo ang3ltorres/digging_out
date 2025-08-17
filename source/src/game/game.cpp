@@ -4,12 +4,17 @@ using namespace glm;
 using namespace core;
 using namespace game;
 
-RenderTexture *Game::renderTexture = nullptr;
+RenderTexture *Game::renderTexture;
+Texture *Game::texture;
+Sprite *Game::sprite;
 
 void Game::init(int width, int height)
 {
 	Graphics::initialize(width, height, "OpenGL");
 	Game::renderTexture = new RenderTexture{800, 600};
+
+	Game::texture = new Texture("../res/main.png", 1);
+	Game::sprite = new Sprite(0, 0, Game::texture, 0, 0, 32, 6, 0.5f);
 
 	while (!Graphics::shouldClose())
 	{
@@ -40,6 +45,8 @@ void Game::draw()
 	// Render to target
 	Graphics::setRenderTexture(Game::renderTexture);
 	Graphics::clearScreen({255, 0, 255});
+
+	Game::sprite->draw();
 
 	// Render to default "canvas"
 	Graphics::setRenderTexture();

@@ -4,24 +4,29 @@
 using namespace core;
 using namespace glm;
 
-Sprite::Sprite(Texture *texture, ivec4 src, ivec4 dst)
-: Drawable::Drawable(texture)
+Sprite::Sprite(int x, int y, Texture *texture, int txr_x, int txr_y, int size, int frames, float speed)
+: Drawable::Drawable(texture), txr_x(txr_x), txr_y(txr_y), size(size), frames(frames), currentFrame(0), alarm(speed, [this]() { this->update(); })
 {
-	this->src = src;
-	this->dst = dst;
+	src = {(float)txr_x, (float)txr_y, (float)size, (float)size};
+	dst = {(float)x,     (float)y,     (float)size, (float)size};
 }
 
-Sprite::Sprite(Texture *texture, ivec4 dst)
-: Drawable::Drawable(texture)
+void Sprite::update()
 {
-	this->src = {0, 0, texture->width, texture->height};
-	this->dst = dst;
+	if (frames <= 1) return;
+
+	src = {(float)(txr_x + (size * currentFrame)), (float)txr_y, (float)size, (float)size};
+
+	if (currentFrame >= frames-1)
+		currentFrame = 0;
+	else
+		currentFrame++;
 }
 
-Sprite::Sprite(Texture *texture)
-: Drawable::Drawable(texture)
+void Sprite::draw()
 {
-	this->src = {0, 0, texture->width, texture->height};
-	this->dst = {0, 0, texture->width, texture->height};
-}
+	batch();
+	texture->draw();
 
+	alarm.update();
+}
