@@ -32,16 +32,6 @@ GLuint Texture::EBO;
 GLuint Texture::UBO_Shared;
 Texture::GPU_UBO Texture::UBO_Data;
 
-static void ARGBtoRGBA(unsigned char *&buffer, unsigned int size)
-{
-	for (unsigned int i = 0; i < size; i += 4)
-	{
-		buffer[i]     ^= buffer[i + 2];
-		buffer[i + 2] ^= buffer[i];
-		buffer[i]     ^= buffer[i + 2];
-	}
-}
-
 void Texture::initialize()
 {
 	//* VAO/Shader For 2D Texture drawing
@@ -253,20 +243,20 @@ Texture::Texture(const char *fileName, unsigned int maxInstances)
 	createBuffers(0);
 }
 
-Texture::Texture(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned int maxInstances)
-: maxInstances(maxInstances), currentInstance(0)
-{
-	Texture::getPixelDataFont(fontPath, fontSize, glyphs, pixelData, &width, &height);
-	createTexture();
-	createBuffers(2);
-}
-
 Texture::Texture(unsigned int width, unsigned int height, unsigned int maxInstances)
 : width(width), height(height), maxInstances(maxInstances), currentInstance(0)
 {
 	pixelData = nullptr;
 	createTexture();
 	createBuffers(1);	
+}
+
+Texture::Texture(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned int maxInstances)
+: maxInstances(maxInstances), currentInstance(0)
+{
+	Texture::getPixelDataFont(fontPath, fontSize, glyphs, pixelData, &width, &height);
+	createTexture();
+	createBuffers(2);
 }
 
 Texture::~Texture()

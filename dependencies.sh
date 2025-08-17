@@ -25,7 +25,7 @@ else
 	echo "Downloading glew";     wget -P "$downloadPath" -O "$downloadPath/glew-2.2.0.tar.gz" https://github.com/nigels-com/glew/releases/download/glew-2.2.0/glew-2.2.0.tgz  > /dev/null 2>&1
 	echo "Downloading glm";      wget -P "$downloadPath" https://github.com/g-truc/glm/archive/refs/tags/1.0.1.tar.gz  > /dev/null 2>&1
 	echo "Downloading zlib";     wget -P "$downloadPath" https://zlib.net/zlib-1.3.1.tar.gz  > /dev/null 2>&1
-	echo "Downloading libpng";   wget -P "$downloadPath" https://download.sourceforge.net/libpng/libpng-1.6.45.tar.gz  > /dev/null 2>&1
+	echo "Downloading libpng";   wget -P "$downloadPath" https://download.sourceforge.net/libpng/libpng-1.6.50.tar.gz  > /dev/null 2>&1
 	echo "Downloading freetype"; wget -P "$downloadPath" https://download.savannah.gnu.org/releases/freetype/freetype-2.13.3.tar.gz > /dev/null 2>&1
 
 	# Extract downloaded dependencies
@@ -100,12 +100,12 @@ cmake \
 	-D PNG_TOOLS=OFF \
 	-D ZLIB_INCLUDE_DIR=$includePath \
 	-D ZLIB_LIBRARY_RELEASE=$libPath/libz.so \
-	../../extract/libpng-1.6.45
+	../../extract/libpng-1.6.50
 
 make -j $cores
-mv libpng.so libpng16.so libpng16.so.16 libpng16.so.16.45.0 $libPath
+mv libpng.so libpng16.so libpng16.so.16 libpng16.so.16.50.0 $libPath
 cp pnglibconf.h $includePath/.
-cd $extractPath/libpng-1.6.45; cp png.h pngconf.h $includePath/.
+cd $extractPath/libpng-1.6.50; cp png.h pngconf.h $includePath/.
 
 ## FREETYPE
 cd $buildPath; mkdir freetype; cd freetype

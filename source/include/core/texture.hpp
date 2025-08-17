@@ -47,8 +47,9 @@ namespace gui
 		void createBuffers(int textureType);
 
 		Texture(const char *fileName, unsigned int maxInstances);
-		Texture(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned int maxInstances);
 		Texture(unsigned int width, unsigned int height, unsigned int maxInstances);
+		Texture(const char *fontPath, unsigned int fontSize, Glyph *glyphs, unsigned int maxInstances);
+		
 		Texture(const Texture&) = delete;
 		~Texture();
 
