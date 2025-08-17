@@ -54,10 +54,11 @@ void Level::draw()
 			Game::sprite->src = {Utils::randomRange(0, 5) * 32, 0, 32, 32};
 			Game::sprite->updateModel();
 			Game::sprite->batch();
-			Game::sprite->texture->draw();
 		}
-			// DrawRectangle(x * 32, y * 32, 32, 32, GREEN);
+		// DrawRectangle(x * 32, y * 32, 32, 32, GREEN);
 	}
+	
+	Game::sprite->texture->draw();
 }
 
 bool Level::collision(ivec4 &rect)

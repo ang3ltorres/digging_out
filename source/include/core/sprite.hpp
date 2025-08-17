@@ -21,7 +21,6 @@ namespace core
 		void update();
 		void draw();
 	
-	private:
 		int currentFrame;
 		game::Utils::Alarm alarm;
 	};

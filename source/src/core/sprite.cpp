@@ -26,7 +26,7 @@ void Sprite::update()
 void Sprite::draw()
 {
 	batch();
-	texture->draw();
+	// texture->draw();
 
 	alarm.update();
 }

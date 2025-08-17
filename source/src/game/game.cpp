@@ -13,8 +13,8 @@ void Game::init(int width, int height)
 	Graphics::initialize(width, height, "OpenGL");
 	Game::renderTexture = new RenderTexture{800, 600};
 
-	Game::texture = new Texture("../res/main.png", 1);
-	Game::sprite = new Sprite(0, 0, Game::texture, 0, 0, 32, 6, 0.5f);
+	Game::texture = new Texture("../res/main.png", 512);
+	Game::sprite = new Sprite(0, 0, Game::texture, 0, 0, 32, 6, 2.0f);
 
 	Level::init(16, 16);
 
