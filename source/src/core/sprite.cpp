@@ -5,13 +5,15 @@ using namespace core;
 using namespace glm;
 
 Sprite::Sprite(int x, int y, Texture *texture, int txr_x, int txr_y, int size, int frames, float speed)
-: Drawable::Drawable(texture), txr_x(txr_x), txr_y(txr_y), size(size), frames(frames), currentFrame(0), alarm(speed, [this]() { this->update(); })
+: Drawable::Drawable(texture), txr_x(txr_x), txr_y(txr_y), size(size), frames(frames), currentFrame(0), alarm(speed, [this]() { this->updateAnimation(); })
 {
 	src = {(float)txr_x, (float)txr_y, (float)size, (float)size};
 	dst = {(float)x,     (float)y,     (float)size, (float)size};
+
+	updateModel();
 }
 
-void Sprite::update()
+void Sprite::updateAnimation()
 {
 	if (frames <= 1) return;
 
@@ -23,10 +25,10 @@ void Sprite::update()
 		currentFrame++;
 }
 
-void Sprite::draw()
-{
-	batch();
-	// texture->draw();
+// void Sprite::draw()
+// {
+// 	batch();
+// 	texture->draw();
 
-	alarm.update();
-}
+// 	alarm.updateAnimation();
+// }

@@ -7,6 +7,7 @@ using namespace game;
 RenderTexture *Game::renderTexture;
 Texture *Game::texture;
 Sprite *Game::sprite;
+Player *Game::player;
 
 void Game::init(int width, int height)
 {
@@ -16,12 +17,14 @@ void Game::init(int width, int height)
 	Game::texture = new Texture("../res/main.png", 512);
 	Game::sprite = new Sprite(0, 0, Game::texture, 0, 0, 32, 6, 2.0f);
 
+	Game::player = new Player(0, 0);
+
 	Level::init(16, 16);
 
 	while (!Graphics::shouldClose())
 	{
-		Game::update();
-		Game::draw();
+		update();
+		draw();
 		Graphics::endFrame();
 	}
 
@@ -30,8 +33,9 @@ void Game::init(int width, int height)
 
 void Game::free()
 {
+	delete player;
 	Level::free();
-	delete Game::renderTexture;
+	delete renderTexture;
 	Graphics::finalize();
 }
 
@@ -45,6 +49,7 @@ void Game::update()
 		Graphics::forceClose = true;
 
 	Level::update();
+	player->update();
 }
 
 void Game::draw()
@@ -54,6 +59,8 @@ void Game::draw()
 	Graphics::clearScreen({255, 0, 255});
 
 	Level::draw();
+
+	player->draw();
 
 	//Game::sprite->draw();
 

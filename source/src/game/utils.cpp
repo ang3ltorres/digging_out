@@ -34,6 +34,8 @@ Utils::Alarm::Alarm(float timeTarget, std::function<void()> func)
 
 void Utils::Alarm::update()
 {
+	if (timeTarget == 0.0f) return;
+
 	timeCurrent += Graphics::deltaTime;
 	while (timeCurrent >= timeTarget)
 	{

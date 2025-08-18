@@ -10,8 +10,12 @@ int Level::row    = 0;
 
 unsigned short *Level::data = nullptr;
 
-Utils::Alarm Level::alarm = Utils::Alarm(0.5f, [](){
-	// printf("ALARM!!");
+Utils::Alarm Level::alarm = Utils::Alarm(1.0f, []()
+{
+	// row++;
+	// for (int x = 0, y = height; x < width; x++)
+	// 	Level::data[Level::getBlock(x, y)] = (Utils::random() > 0.5f) ? blockDefault : blockEmpty;
+
 	return;
 });
 
@@ -25,7 +29,18 @@ void Level::init(int width, int height)
 	Level::data   = new unsigned short[width * height];
 
 	for (int i = 0; i < width * height; i++)
-		Level::data[i] = (Utils::random() > 0.5f) ? blockDefault : blockEmpty;
+		Level::data[i] = (Utils::random() > 0.0f) ? blockDefault : blockEmpty;
+
+	for (int x = 0, y = 0; x < width; x++)
+		Level::data[Level::getBlock(x, y)] = blockEmpty;
+	for (int x = 0, y = 1; x < width; x++)
+		Level::data[Level::getBlock(x, y)] = blockEmpty;
+	for (int x = 0, y = 2; x < width; x++)
+		Level::data[Level::getBlock(x, y)] = blockEmpty;
+	for (int x = 4, y = 3; x < width/2 + 4; x++)
+		Level::data[Level::getBlock(x, y)] = blockEmpty;
+	for (int x = 6, y = 4; x < width/2; x++)
+		Level::data[Level::getBlock(x, y)] = blockEmpty;
 }
 
 void Level::free()
@@ -36,7 +51,7 @@ void Level::free()
 
 void Level::update()
 {
-	Level::alarm.update();
+	alarm.update();
 }
 
 void Level::draw()
@@ -51,7 +66,7 @@ void Level::draw()
 		if (block == 0xFF)
 		{
 			Game::sprite->dst = {x * 32, y * 32, 32, 32};
-			Game::sprite->src = {Utils::randomRange(0, 5) * 32, 0, 32, 32};
+			Game::sprite->src = {0, 0, 32, 32};
 			Game::sprite->updateModel();
 			Game::sprite->batch();
 		}

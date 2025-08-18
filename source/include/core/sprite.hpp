@@ -18,8 +18,7 @@ namespace core
 		int size;
 		int frames;
 
-		void update();
-		void draw();
+		void updateAnimation();
 	
 		int currentFrame;
 		game::Utils::Alarm alarm;

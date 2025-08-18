@@ -3,6 +3,7 @@
 #include "core/graphics.hpp"
 #include "game/utils.hpp"
 #include "game/level.hpp"
+#include "game/player.hpp"
 
 namespace game
 {
@@ -22,5 +23,7 @@ namespace game
 
 		static core::Texture *texture;
 		static core::Sprite *sprite;
+
+		static game::Player *player;
 	};
 }
