@@ -20,8 +20,8 @@ namespace core
 		Camera(unsigned int width, unsigned int height);
 		Camera(const Camera &) = delete;
 		~Camera() = default;
-		void setPosition(const glm::vec2 &position);
-		void move(const glm::vec2& delta);
+		void setPosition(const glm::vec2 position);
+		void move(const glm::vec2 delta);
 		void setZoom(float zoom);
 		void updateViewProjectionMatrix();
 		void updateView();

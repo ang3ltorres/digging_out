@@ -20,7 +20,7 @@ int Utils::randomRange(int min, int max)
 	return distInt(gen);
 }
 
-bool Utils::collisionRect(vec4 &r1, vec4 &r2)
+bool Utils::collisionRect(vec4 r1, vec4 r2)
 {
 	return !(r1.x + r1.z <= r2.x ||
 					 r1.x >= r2.x + r2.z ||

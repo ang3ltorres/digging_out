@@ -9,13 +9,13 @@ Camera::Camera(unsigned int width, unsigned int height)
 	updateViewProjectionMatrix();
 }
 
-void Camera::setPosition(const vec2 &position)
+void Camera::setPosition(const vec2 position)
 {
 	this->position = position;
 	updateViewProjectionMatrix();
 }
 
-void Camera::move(const vec2 &delta)
+void Camera::move(const vec2 delta)
 {
 	position -= delta;
 	updateViewProjectionMatrix();

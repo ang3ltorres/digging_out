@@ -15,7 +15,7 @@ namespace game
 		static void update();
 		static void draw();
 
-		static bool collision(glm::vec4 &rect);
+		static bool collision(glm::vec4 rect);
 
 		static int width;
 		static int height;

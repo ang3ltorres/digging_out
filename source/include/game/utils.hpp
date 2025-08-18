@@ -10,7 +10,7 @@ namespace game
 		static float random();
 		static int randomRange(int min, int max);
 
-		static bool collisionRect(glm::vec4 &r1, glm::vec4 &r2);
+		static bool collisionRect(glm::vec4 r1, glm::vec4 r2);
 	
 		struct Alarm
 		{

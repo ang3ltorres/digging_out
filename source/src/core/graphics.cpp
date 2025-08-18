@@ -94,7 +94,7 @@ bool Graphics::shouldClose()
 	return glfwWindowShouldClose(Graphics::window);
 }
 
-void Graphics::clearScreen(const Color &color)
+void Graphics::clearScreen(const Color color)
 {
 	glClearColor(color.r / 255.0f, color.g / 255.0f, color.b / 255.0f, color.a / 255.0f);
 	glClear(GL_COLOR_BUFFER_BIT);

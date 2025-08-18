@@ -76,7 +76,7 @@ void Level::draw()
 	Game::sprite->texture->draw();
 }
 
-bool Level::collision(vec4 &rect)
+bool Level::collision(vec4 rect)
 {
 	int startX = int(std::floor(rect.x / 32.0f));
 	int endX   = startX + int(std::ceil(rect.z / 32.0f));

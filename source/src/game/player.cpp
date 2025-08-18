@@ -17,6 +17,15 @@ void Player::update()
 	static constexpr float gravity = 500.0f;
 	static constexpr int tileSize = 32;
 
+	if (Input::keyboardStates[GLFW_KEY_RIGHT])
+		if (! Level::collision( {dst.x + 1.0f, dst.y, dst.w, dst.z} ))
+			dst.x += 1.0f;
+
+	if (Input::keyboardStates[GLFW_KEY_LEFT])
+		if (! Level::collision( {dst.x - 1.0f, dst.y, dst.w, dst.z} ))
+			dst.x -= 1.0f;
+
+
 	dst.y += ySpeed * Graphics::deltaTime;
 
 	if (ySpeed >= 0 && Level::collision(dst))
