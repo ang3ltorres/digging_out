@@ -16,8 +16,8 @@ namespace core
 
 		Texture *texture;
 		
-		glm::ivec4 src;
-		glm::ivec4 dst;
+		glm::vec4 src;
+		glm::vec4 dst;
 		Color color;
 		float rotation;
 

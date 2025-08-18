@@ -52,7 +52,7 @@ void Graphics::initialize(int width, int height, const char *title)
 	glDisable(GL_CULL_FACE);
 	glDisable(GL_STENCIL_TEST);
 	glDepthMask(GL_FALSE);
-  glfwSwapInterval(0);
+  glfwSwapInterval(1);
 	glActiveTexture(GL_TEXTURE0);
 
 	Graphics::clearScreen({255, 255, 255});

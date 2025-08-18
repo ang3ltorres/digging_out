@@ -26,7 +26,7 @@ void Drawable::batch()
 {
 	texture->SSBO_Data[texture->currentInstance++] =
 	{
-		{(float)src.x / (float)texture->width, (float)src.y / (float)texture->height, (float)src.z / (float)texture->width, (float)src.w / (float)texture->height},
+		{src.x / (float)texture->width, src.y / (float)texture->height, src.z / (float)texture->width, src.w / (float)texture->height},
 		{vec4{color.r, color.g, color.b, color.a}},
 		{model},
 	};

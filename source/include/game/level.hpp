@@ -15,7 +15,7 @@ namespace game
 		static void update();
 		static void draw();
 
-		static bool collision(glm::ivec4 &rect);
+		static bool collision(glm::vec4 &rect);
 
 		static int width;
 		static int height;
@@ -29,6 +29,6 @@ namespace game
 
 	private:
 		static unsigned short getBlock(int x, int y);
-		static glm::ivec4 rectAux;
+		static glm::vec4 rectAux;
 	};
 }

@@ -19,7 +19,7 @@ Utils::Alarm Level::alarm = Utils::Alarm(1.0f, []()
 	return;
 });
 
-ivec4 Level::rectAux = {0, 0, 0, 0};
+vec4 Level::rectAux = {0, 0, 0, 0};
 
 void Level::init(int width, int height)
 {
@@ -76,7 +76,7 @@ void Level::draw()
 	Game::sprite->texture->draw();
 }
 
-bool Level::collision(ivec4 &rect)
+bool Level::collision(vec4 &rect)
 {
 	int startX = int(std::floor(rect.x / 32.0f));
 	int endX   = startX + int(std::ceil(rect.z / 32.0f));

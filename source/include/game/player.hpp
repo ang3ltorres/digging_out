@@ -8,6 +8,9 @@ namespace game
 	{
 	public:
 		Player(int x, int y);
+		
+		float ySpeed;
+		bool isGrounded;
 
 		void update();
 		void draw();
