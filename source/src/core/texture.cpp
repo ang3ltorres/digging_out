@@ -272,7 +272,7 @@ void Texture::draw()
 {
 	Texture::shader->use();
 	Graphics::setVAO(Texture::VAO);
-	Graphics::setTexture(id);
+	Graphics::setTexture(0, id);
 	
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, SSBO);
 	glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, sizeof(GPU_SSBO) * currentInstance, SSBO_Data);

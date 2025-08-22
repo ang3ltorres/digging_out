@@ -16,6 +16,7 @@ double Graphics::fps;
 double Graphics::deltaTime;
 
 double Graphics::currentTime;
+double Graphics::time;
 double Graphics::lastTime = 0.0f;
 
 static void resized([[maybe_unused]] GLFWwindow *window, int width, int height)
@@ -85,6 +86,7 @@ bool Graphics::shouldClose()
 	if (Graphics::forceClose)
 		glfwSetWindowShouldClose(Graphics::window, GLFW_TRUE);
 
+	time = glfwGetTime();
 	currentTime = glfwGetTime();
 	deltaTime   = currentTime - lastTime;
 	lastTime    = currentTime;
@@ -131,12 +133,12 @@ void Graphics::setVAO(GLuint VAO)
 	}
 }
 
-void Graphics::setTexture(GLuint texture)
+void Graphics::setTexture(GLuint unit, GLuint texture)
 {
 	if (texture != Graphics::currentTexture) {
 
 		Graphics::currentTexture = texture;
-		glBindTexture(GL_TEXTURE_2D, texture);
+		glBindTextureUnit(unit, texture);
 	}
 }
 

@@ -40,6 +40,7 @@ namespace core
 
 		// Time Travel stuff
 		static double fps;
+		static double time;
 		static double deltaTime;
 
 		// Library Methods
@@ -47,7 +48,7 @@ namespace core
 		static void clearScreen(const Color color);
 		static void setRenderTexture(RenderTexture *renderTexture = nullptr);
 		static void setVAO(GLuint VAO);
-		static void setTexture(GLuint texture);
+		static void setTexture(GLuint unit, GLuint texture);
 		static void endFrame();
 
 	private:
